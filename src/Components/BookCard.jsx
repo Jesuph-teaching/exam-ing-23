@@ -1,7 +1,10 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { CartContext } from '../Providers/CartProvider';
+
 function BookCard({ title, price, image, id }) {
-	// replace with useCart hook
-	const addToCart = (book) => {};
+	const { addToCart } = useContext(CartContext);
 
 	return (
 		<div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-md">
@@ -26,6 +29,7 @@ function BookCard({ title, price, image, id }) {
 		</div>
 	);
 }
+
 BookCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
