@@ -1,16 +1,27 @@
-import BookCard from '../Components/BookCard';
-import books from '../Data/books';
+import useCart from '../Hooks/useCart';
+import React from 'react';
 
-export default function Books() {
-	return (
-		<div className="container flex h-auto flex-col justify-start gap-4 p-4">
-			<h1 className="text-6xl font-bold">Books</h1>
-			<p>Pick a book from our collection and add it to your cart.</p>
-			<div className="grid grow grid-cols-1 gap-4 overflow-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{books.map((book) => (
-					<BookCard key={book.id} id={book.id} title={book.title} price={book.price} image={book.image} />
-				))}
-			</div>
-		</div>
-	);
-}
+const Books = () => {
+  const { addToCart, books } = useCart();
+
+  const handleAddToCart = (book) => {
+    addToCart(book);
+    alert(`Added "${book.title}" to cart!`);
+  };
+
+  return (
+    <div>
+      <h2>Books:</h2>
+      <ul>
+        {books.map(book => (
+          <li key={book.id}>
+            {book.title} - {book.author}
+            <button onClick={() => handleAddToCart(book)}>Add to Cart</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Books;

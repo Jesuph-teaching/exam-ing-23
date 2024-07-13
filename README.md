@@ -1,4 +1,4 @@
-# Exam React JS ( practice ) - 2024 - 07 - 13
+npm run # Exam React JS ( practice ) - 2024 - 07 - 13
 
 ## 1. What to do?
 - Clone this repository
