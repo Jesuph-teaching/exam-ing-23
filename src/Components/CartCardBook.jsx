@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import useCart from '../Hooks/useCart';
 function CartCardBook({ title, price, id }) {
-	// replace with useCart hook
-	const removeFromCart = (bookId) => {};
-
+	
+	const {state, dispatch} = useCart();
+	
 	return (
 		<div className="grid grid-cols-3 items-center rounded-xl border p-4">
 			<p>{title}</p>
@@ -10,8 +11,7 @@ function CartCardBook({ title, price, id }) {
 			<button
 				className="btn btn-circle btn-outline btn-error btn-sm ml-auto"
 				onClick={() => {
-					// remove this book from cart
-					removeFromCart(id);
+					dispatch({ type: 'REMOVE_FROM_CART', payload: {id} });
 				}}
 			>
 				X

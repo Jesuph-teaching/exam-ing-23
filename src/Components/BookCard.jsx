@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import useCart from '../Hooks/useCart';
 function BookCard({ title, price, image, id }) {
 	// replace with useCart hook
-	const addToCart = (book) => {};
 
+	const { state, dispatch } = useCart();
 	return (
 		<div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-md">
 			<img src={`/books/${image}`} alt="Book" className="aspect-[9/16] w-full rounded-md object-cover" />
@@ -12,12 +13,7 @@ function BookCard({ title, price, image, id }) {
 				<button
 					className="btn btn-primary"
 					onClick={() => {
-						addToCart({
-							id,
-							title,
-							price,
-							image,
-						});
+						dispatch({ type: 'ADD_TO_CART', payload: { id, title, price } });
 					}}
 				>
 					Add to Cart

@@ -1,14 +1,15 @@
 import { ShoppingCart } from 'iconsax-react';
+import useCart from '../Hooks/useCart';
 
 export default function CartButton() {
 	// replace with useCart hook
-	const cart = [];
+	const {state} = useCart()
 
 	return (
 		<div className="fixed bottom-0 right-0 p-4">
 			<div className="indicator">
-				{cart.length > 0 && (
-					<span className="badge indicator-item badge-primary indicator-start">{cart.length}</span>
+				{state.cart.length > 0 && (
+					<span className="badge indicator-item badge-primary indicator-start">{state.cart.length}</span>
 				)}
 
 				<button

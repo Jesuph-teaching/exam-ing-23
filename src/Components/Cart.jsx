@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import CardBook from './CartCardBook';
+import useCart from '../Hooks/useCart';
 
 export default function Cart() {
-	// replace with useCart hook
-	const cart = [];
-	const clearCart = () => {};
+	const { state, dispatch } = useCart();
 
 	return (
 		<dialog id="cart_modal" className="modal">
@@ -14,14 +13,14 @@ export default function Cart() {
 				</form>
 				<h3 className="text-lg font-bold">Your cart</h3>
 				<p className="py-4">You can see the items you have added to your cart here.</p>
-				{cart.length === 0 ? (
+				{state.cart.length === 0 ? (
 					<p className="text-center">Your cart is empty.</p>
 				) : (
 					<>
 						<div className="flex flex-col gap-4">
-							{cart.map((book) => (
-								<CardBook key={book.id} title={book.title} price={book.price} id={book.id} />
-							))}
+							{state.cart.map((book) => {
+								return <CardBook key={book.id} title={book.title} price={book.price} id={book.id} />;
+							})}
 						</div>
 						<div className="modal-action">
 							<Link
@@ -31,7 +30,13 @@ export default function Cart() {
 							>
 								Checkout
 							</Link>
-							<button className="btn btn-secondary" onClick={clearCart}>
+							<button
+								onClick={() => {
+									document.getElementById('cart_modal').close();
+									dispatch({ type: 'CLEAR_CART' });
+								}}
+								className="btn btn-secondary"
+							>
 								Clear Cart
 							</button>
 						</div>
