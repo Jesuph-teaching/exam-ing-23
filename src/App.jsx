@@ -3,7 +3,7 @@ import './App.css';
 import Routes from './Routes';
 import CartButton from './Components/CartButton';
 import Cart from './Components/Cart';
-import CartProvider from './Providers/CartProvider';
+import CartProvider from './Providers/CartProvider.jsx';
 import { Toaster } from 'react-hot-toast';
 
 function App() {

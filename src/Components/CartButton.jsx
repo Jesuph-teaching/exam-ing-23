@@ -1,7 +1,6 @@
 import { ShoppingCart } from 'iconsax-react';
 
 export default function CartButton() {
-	// replace with useCart hook
 	const cart = [];
 
 	return (
