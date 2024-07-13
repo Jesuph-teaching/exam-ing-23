@@ -1,7 +1,10 @@
 import BookCard from '../Components/BookCard';
 import books from '../Data/books';
+import { useCart } from '../Providers/CartProviders';
 
 export default function Books() {
+
+	const { addToCart } = useCart();
 	return (
 		<div className="container flex h-auto flex-col justify-start gap-4 p-4">
 			<h1 className="text-6xl font-bold">Books</h1>
@@ -14,3 +17,5 @@ export default function Books() {
 		</div>
 	);
 }
+
+

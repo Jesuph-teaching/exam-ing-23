@@ -9,5 +9,21 @@ export default function Routes() {
 		/* 
 			Routing instructions go here.
 		*/
+		{
+			path : "/home",
+			element : <Home />,
+		},
+		{
+			path : "/books",
+			element : <Books />
+		},
+		{
+			path : "/checkout",
+			element : <Checkout />
+		},
+		{
+			path : "*",
+			element : <NotFound />
+		}
 	]);
 }
