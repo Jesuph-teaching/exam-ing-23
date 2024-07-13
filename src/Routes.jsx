@@ -4,10 +4,12 @@ import NotFound from './Pages/NotFound';
 import Books from './Pages/Books';
 import Checkout from './Pages/Checkout';
 
+
 export default function Routes() {
 	return useRoutes([
-		/* 
-			Routing instructions go here.
-		*/
+		{ path: '/index', element: <Home /> },
+		{ path: '/Books', element: <Books /> },
+		{ path: '/checkout', element: <Checkout /> },
+		{ path: '*', element: <NotFound /> },
 	]);
 }

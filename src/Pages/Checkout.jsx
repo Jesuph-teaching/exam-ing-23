@@ -5,8 +5,29 @@ import toast from 'react-hot-toast';
 
 export default function Checkout() {
 	// replace with useCart hook
-	const cart = [];
+	useCart = () => {
+		// replace with useCart hook
+		return {
+			cart: [],
+			total: 0,
+			address: '',
+			name: '',
+			phone: '',
+		}
+	};
+	const cart = useCart().cart;
+	const total = useCart().total;
+	const address = useCart().address;
+	const name = useCart().name;
+	const phone = useCart().phone;
+	const addToCart = (book) => {
+		useCart().cart.push(book);	
+		useCart().total = useCart().total + book.price;
 
+		toast.success('Book added to cart');
+
+		console.log(useCart());
+	}
 	const [form, setForm] = useState({
 		name: '',
 		address: '',
@@ -35,9 +56,21 @@ export default function Checkout() {
 				</div>
 
 				<form className="flex flex-col gap-4 p-4 md:w-1/2" method="POST">
-					{/* 
-						write the inputs of Check out here
-					*/}
+					{
+						<CartCardBook key={book.id} title={book.title} price={book.price} id={book.id} />
+
+					}
+
+
+
+					<input>Name:</input><input type="text" name="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}></input>
+
+					<input>Address:</input><input type="text" name="address" value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}></input>
+
+					<input>Phone:</input><input type="text" name="phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}></input>
+					
+						
+			
 					<button
 						className="btn btn-primary"
 						onClick={(e) => {
@@ -60,6 +93,10 @@ export default function Checkout() {
 					>
 						Place Order
 					</button>
+
+					<button className="btn btn-error" onClick = {() => Remove().cart = []}>Remove</button>
+					
+
 				</form>
 			</div>
 		</div>

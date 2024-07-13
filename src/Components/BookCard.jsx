@@ -1,7 +1,28 @@
 import PropTypes from 'prop-types';
+import { useCart } from '../Pages/Checkout';
+
+
+
 function BookCard({ title, price, image, id }) {
+
 	// replace with useCart hook
-	const addToCart = (book) => {};
+
+	const useCart = () => {
+		// replace with useCart hook
+		return {
+			cart: [],
+			total: 0,
+		};
+	};
+
+	const cart = useCart().cart;
+	const total = useCart().total;
+	const addToCart = (book) => {
+		useCart().cart.push(book);
+		useCart().total = useCart().total + book.price;
+	};
+
+
 
 	return (
 		<div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-md">
