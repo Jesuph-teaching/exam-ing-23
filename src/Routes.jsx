@@ -5,9 +5,22 @@ import Books from './Pages/Books';
 import Checkout from './Pages/Checkout';
 
 export default function Routes() {
-	return useRoutes([
-		/* 
-			Routing instructions go here.
-		*/
-	]);
+    return useRoutes([
+        {
+            path: "/",
+            element: <Home />
+        },
+        {
+            path: "/books",
+            element: <Books />
+        },
+        {
+            path: "/checkout",
+            element: <Checkout />
+        },
+        {
+            path: "*",
+            element: <NotFound />
+        }
+    ]);
 }
