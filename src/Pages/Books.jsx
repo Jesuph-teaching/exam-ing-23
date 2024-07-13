@@ -1,5 +1,6 @@
 import BookCard from '../Components/BookCard';
 import books from '../Data/books';
+import useCart from '..hooks/useCart.jsx';
 
 export default function Books() {
 	return (
@@ -9,6 +10,7 @@ export default function Books() {
 			<div className="grid grow grid-cols-1 gap-4 overflow-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{books.map((book) => (
 					<BookCard key={book.id} id={book.id} title={book.title} price={book.price} image={book.image} />
+				
 				))}
 			</div>
 		</div>
