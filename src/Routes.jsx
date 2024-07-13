@@ -6,8 +6,22 @@ import Checkout from './Pages/Checkout';
 
 export default function Routes() {
 	return useRoutes([
-		/* 
-			Routing instructions go here.
-		*/
+
+		{
+			index: true,
+			element: <Home />,
+		},
+		{
+			path	: '/Books',
+			element: <Books />,
+		},
+		{
+			path : '/Checkout',
+			element: <Checkout />,
+		},
+		{
+			path : '*',
+			element: <NotFound />,
+		}
 	]);
 }
