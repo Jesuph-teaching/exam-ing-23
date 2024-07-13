@@ -2,6 +2,7 @@ import { useState } from 'react';
 import CartCardBook from '../Components/CartCardBook';
 import { orderSchema } from '../Validation/order';
 import toast from 'react-hot-toast';
+import { useCart } from '../Hooks/useCart';
 
 export default function Checkout() {
 	// replace with useCart hook
