@@ -5,16 +5,17 @@ import CartButton from './Components/CartButton';
 import Cart from './Components/Cart';
 import CartProvider from './Providers/CartProvider';
 import { Toaster } from 'react-hot-toast';
+import books from './Data/books';
 
 function App() {
 	return (
 		<BrowserRouter>
-			{/*  where you should wrap CartProvider */}
-			<Routes />
-			<CartButton />
-			<Cart />
-			<Toaster />
-			{/* closing tag of CartProvider */}
+			<CartProvider>
+				<Routes />
+				<CartButton />
+				<Cart />
+				<Toaster />
+			</CartProvider>
 		</BrowserRouter>
 	);
 }

@@ -4,8 +4,7 @@ import { orderSchema } from '../Validation/order';
 import toast from 'react-hot-toast';
 
 export default function Checkout() {
-	// replace with useCart hook
-	const cart = [];
+	const cart = useCart();
 
 	const [form, setForm] = useState({
 		name: '',
