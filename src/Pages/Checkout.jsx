@@ -2,10 +2,15 @@ import { useState } from 'react';
 import CartCardBook from '../Components/CartCardBook';
 import { orderSchema } from '../Validation/order';
 import toast from 'react-hot-toast';
-
+import { useCart } from '../hooks/useCart';
 export default function Checkout() {
-	// replace with useCart hook
-	const cart = [];
+	
+	
+
+	
+		const { cart } = useCart();
+		
+	
 
 	const [form, setForm] = useState({
 		name: '',
@@ -38,6 +43,25 @@ export default function Checkout() {
 					{/* 
 						write the inputs of Check out here
 					*/}
+					<input
+						type="text"
+						placeholder="Name"
+						value={form.name}
+						onChange={(e) => setForm({ ...form, name: e.target.value })}
+					/>
+					<input
+						type="text"
+						placeholder="Address"
+						value={form.address}
+						onChange={(e) => setForm({ ...form, address: e.target.value })}
+					/>
+					<input
+						type="text"
+						placeholder="Phone"
+						value={form.phone}
+						onChange={(e) => setForm({ ...form, phone: e.target.value })}
+					/>
+					
 					<button
 						className="btn btn-primary"
 						onClick={(e) => {
