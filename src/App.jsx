@@ -8,14 +8,16 @@ import { Toaster } from 'react-hot-toast';
 
 function App() {
 	return (
-		<BrowserRouter>
-			{/*  where you should wrap CartProvider */}
-			<Routes />
-			<CartButton />
-			<Cart />
-			<Toaster />
-			{/* closing tag of CartProvider */}
-		</BrowserRouter>
+		<CartProvider>
+			<BrowserRouter>
+				{/*  where you should wrap CartProvider */}
+				<Routes />
+				<CartButton />
+				<Cart />
+				<Toaster />
+				{/* closing tag of CartProvider */}
+			</BrowserRouter>
+		</CartProvider>
 	);
 }
 
