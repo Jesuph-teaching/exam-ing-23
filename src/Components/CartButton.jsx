@@ -1,8 +1,8 @@
 import { ShoppingCart } from 'iconsax-react';
+import useCart from '../Hooks/useCart';
 
 export default function CartButton() {
-	// replace with useCart hook
-	const cart = [];
+	const { cart } = useCart();
 
 	return (
 		<div className="fixed bottom-0 right-0 p-4">
