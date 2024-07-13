@@ -1,7 +1,8 @@
+import useCart from '../Hooks/useCart';
 import PropTypes from 'prop-types';
+
 function BookCard({ title, price, image, id }) {
-	// replace with useCart hook
-	const addToCart = (book) => {};
+	const { addToCart } = useCart();
 
 	return (
 		<div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-md">
@@ -26,6 +27,7 @@ function BookCard({ title, price, image, id }) {
 		</div>
 	);
 }
+
 BookCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,

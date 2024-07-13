@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import CardBook from './CartCardBook';
+import useCart from '../Hooks/useCart';
+import CartCardBook from './CartCardBook';
 
 export default function Cart() {
-	// replace with useCart hook
-	const cart = [];
-	const clearCart = () => {};
+	const { cart, clearCart } = useCart();
 
 	return (
 		<dialog id="cart_modal" className="modal">
@@ -20,7 +19,7 @@ export default function Cart() {
 					<>
 						<div className="flex flex-col gap-4">
 							{cart.map((book) => (
-								<CardBook key={book.id} title={book.title} price={book.price} id={book.id} />
+								<CartCardBook key={book.id} title={book.title} price={book.price} id={book.id} />
 							))}
 						</div>
 						<div className="modal-action">
