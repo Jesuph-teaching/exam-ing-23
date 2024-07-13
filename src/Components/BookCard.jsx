@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import { useCart } from '../Providers/CartProvider';
 function BookCard({ title, price, image, id }) {
 	// replace with useCart hook
+	
+
 	const addToCart = (book) => {};
 
 	return (
